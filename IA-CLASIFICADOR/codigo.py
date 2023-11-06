@@ -62,7 +62,7 @@ entrenamiento_y=[]
 
 model=models.load_model('modelo.keras')
 
-imagen=cv2.imread("C:/Users/pedro/Desktop/IA-CLASIFICADOR/IMAGENES/test/00001429_004.png")
+imagen=cv2.imread("C:/Users/pedro/Desktop/IA-CLASIFICADOR/IMAGENES/test/00001367_001.png")
 imagen=cv2.resize(imagen,(width,height))
 
 result=model.predict(np.array([imagen]))[0]
