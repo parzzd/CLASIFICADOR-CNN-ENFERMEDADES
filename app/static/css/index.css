@@ -1,0 +1,27 @@
+html{
+    height: 100%;
+    text-align: center;
+}
+.centro{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+}
+img {
+    width: 1px;
+    height: 1px;
+}
+
+.titulo{
+    font-size: 90px ;
+}
+p{
+    font-size: 40px;
+    text-decoration: underline;
+}
+.procesar{
+    height: 30px;
+    width: 100px;
+}
