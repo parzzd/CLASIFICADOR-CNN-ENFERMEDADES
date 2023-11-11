@@ -75,5 +75,5 @@ def predict_image(image_path):
 
 if __name__ == '__main__':
     # Carga el modelo de IA
-    model = tf.keras.models.load_model('app/modelo.h5')
+    model = tf.keras.models.load_model('app/modelo2.h5')
     app.run(debug=True, port=5002)

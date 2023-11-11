@@ -11,8 +11,8 @@ height = 264
 rut_entrada = "app\IMAGENES\entrada"
 rut_prueba = "app\IMAGENES\test"
 
-entrenamiento_x = []
-entrenamiento_y = []
+# entrenamiento_x = []
+# entrenamiento_y = []
 
 # for clase in os.listdir(rut_entrada):
 #     clase_path = os.path.join(rut_entrada, clase)
@@ -72,24 +72,24 @@ entrenamiento_y = []
 # model.fit(x_train, y_train, epochs=epoch, validation_data=(x_test, y_test))
 
 # # Guardar el modelo en una ruta relativa o absoluta
-# model.save('modelo.h5')
+# model.save('modelo2.h5')
 
-model = tf.keras.models.load_model('modelo.h5')
+# model = tf.keras.models.load_model('app/modelo.h5')
 
-imagen=cv2.imread("D:/CLASIFICADOR-CNN-ENFERMEDADES/app/IMAGENES/test/00001373_038.png")
-imagen=cv2.resize(imagen,(width,height))
+# imagen=cv2.imread("D:/CLASIFICADOR-CNN-ENFERMEDADES/app/IMAGENES/test/00001367_001.png")
+# imagen=cv2.resize(imagen,(width,height))
 
-result=model.predict(np.array([imagen]))[0]
+# result=model.predict(np.array([imagen]))[0]
 
-if result.argmax()==0:
-    print("pneumo")
-elif result.argmax()==1:
-    print("pleural")
-elif result.argmax()==2:
-    print("nofinding")  
-elif result.argmax()==3: 
-    print("NODUEL")
-elif result.argmax()==4:
-    print("INFILTRATION")
-elif result.argmax()==5:
-    print("EFFUSION") 
+# if result.argmax()==0:
+#     print("pneumo")
+# elif result.argmax()==1:
+#     print("pleural")
+# elif result.argmax()==2:
+#     print("nofinding")  
+# elif result.argmax()==3: 
+#     print("NODULE")
+# elif result.argmax()==4:
+#     print("INFILTRATION")
+# elif result.argmax()==5:
+#     print("EFFUSION") 
