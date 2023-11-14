@@ -6,16 +6,57 @@
     <link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}">
 </head>
 <body>
-    <h1>INGRESE SU IMAGEN</h1>
-    <form action="/" method="POST" enctype="multipart/form-data">
-        <input type="file" name="file" accept=".jpg, .jpeg, .png">
-        <button type="submit">Predecir</button>
-    </form>
+    <div>
+        <h1>Clasificador de Imágenes Médicas</h1>
 
-    {% if result %}
-        <h2>Resultado de la predicción:</h2>
-        <p>{{ result }}</p>
-        <img src="{{ url_for('static', filename=image_path) }}" alt="Imagen subida">
-    {% endif %}
+        <form action="/" method="POST" enctype="multipart/form-data">
+            <label for="file-input" id="file-label" class="file-label">Seleccionar Imagen</label>
+            <input type="file" id="file-input" name="file" accept=".jpg, .jpeg, .png" onchange="previewImage()" style="display:none;">
+            <div id="result-section" style="display:none;">
+                <h2>Resultado de la Predicción:</h2>
+                <p>{{ result }}</p>
+            </div>
+            <button type="submit">Predecir</button>
+        </form>
+        <div id="image-preview" style="display:none;">
+            <h2>Vista Previa de la Imagen:</h2>
+            <img class="imagen" id="preview-image" src="#" alt="Vista Previa de la Imagen">
+        </div>
+        <br>
+        <br><br>
+        <br>
+        {% if result %}
+            <h2>Resultado de la predicción:</h2>
+            <p>{{ result }}</p>
+        {% endif %}
+    </div>
+
+    
+    <script>
+        function previewImage() {
+            var fileInput = document.getElementById('file-input');
+            var previewImage = document.getElementById('preview-image');
+            var submitButton = document.querySelector('button[type="submit"]');
+            var fileLabel = document.getElementById('file-label');
+            var resultSection = document.getElementById('result-section');
+
+            if (fileInput.files && fileInput.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    previewImage.src = e.target.result;
+                    document.getElementById('image-preview').style.display = 'block';
+                    submitButton.style.display = 'inline-block';
+                    fileLabel.innerHTML = "Cambiar Imagen";
+                    resultSection.style.display = 'none'; 
+                };
+
+                reader.readAsDataURL(fileInput.files[0]);
+            } else {
+                fileLabel.innerHTML = "Seleccionar Imagen";
+            }
+        }
+    </script>
 </body>
 </html>
+
