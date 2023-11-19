@@ -59,11 +59,11 @@ def predict_image(image_path):
     # predicted_label = labels[np.argmax(result)]
 
     if result.argmax()==0:
-        predicted_label=("pneumo")
+        predicted_label=("PNEUMOTHORAX")
     elif result.argmax()==1:
-        predicted_label=("pleural")
+        predicted_label=("PLEURAL_THICKENING")
     elif result.argmax()==2:
-        predicted_label=("nofinding")  
+        predicted_label=("NADA, ESTA SANO")  
     elif result.argmax()==3: 
         predicted_label=("NODULE")
     elif result.argmax()==4:
@@ -77,3 +77,8 @@ if __name__ == '__main__':
     # Carga el modelo de IA
     model = tf.keras.models.load_model('app/modelo.h5')
     app.run(debug=True, port=5002)
+
+#virtualenv -p python env
+#env/bin/activate
+#pip install flask
+#python app/app.py
